@@ -1,14 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const useFetch = (url) => {
     
     if(!url)throw Error;
+
+    const isMounted = useRef(true);
 
     const [state, setState] = useState({
         data: null,
         loading: true,
         error: null
     });
+
+    useEffect(() => {
+        return(()=>{
+            isMounted.current = false;
+        })
+    }, [])
 
     useEffect( () => {
 
