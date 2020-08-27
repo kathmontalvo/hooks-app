@@ -4,8 +4,7 @@ const useFetch = (url) => {
     
     if(!url)throw Error;
 
-    const isMounted = useRef(true);
-
+    const isMounted = useRef(true); // La idea del useRef es q mantenga la referencia cuando este hook esta vivo o el comp q lo usa sigue montado. 
     const [state, setState] = useState({
         data: null,
         loading: true,
@@ -29,11 +28,13 @@ const useFetch = (url) => {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
-                setState({
-                    loading: false,
-                    error: null,
-                    data
-                })
+                if(isMounted.current) {
+                    setState({
+                        loading: false,
+                        error: null,
+                        data
+                    })
+                } 
             })
     }, [url]);
 

@@ -16,7 +16,10 @@ const RealExampleRef = () => {
             { show && <MultipleCustomHooks />}
 
             <button
-                className='btn btn-primary'
+                className='btn btn-primary mt-2'
+                onClick = { ()=> {
+                    setShow(!show)
+                }}
             >
                 Show / Hide
             </button>
