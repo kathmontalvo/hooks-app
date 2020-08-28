@@ -8,10 +8,11 @@ import ReactDOM from 'react-dom';
 // import RealExampleRef from './components/04-useRef/RealExampleRef';
 // import Layout from './components/05-useLayoutEffect/Layout';
 // import MemoHook from './components/06-memos/MemoHook';
+// import Padre from './components/07-tarea-memo/Padre';
 
-import Padre from './components/07-tarea-memo/Padre';
+import TodoApp from './components/08-useReducer/TodoApp';
 
 ReactDOM.render(
-  <Padre />,
+  <TodoApp />,
   document.getElementById('root')
 );
